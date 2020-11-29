@@ -1,0 +1,11 @@
+;;; scm-bot.egg -*- scheme -*-
+
+((synopsis "Telegram bot with Scheme interpreter")
+ (author "None")
+ (license "None")
+ (category web)
+ (dependencies r7rs srfi-1 srfi-19 srfi-48 srfi-18 srfi-69 medea)
+ (test-dependencies r7rs test)
+ (component-options
+  (csc-options "-O3" "-d1"))
+ (components (extension scm-bot)))
