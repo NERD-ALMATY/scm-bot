@@ -7,7 +7,7 @@
 
 (define apply-in-underlying-scheme apply)
 
-(define threshold-eval 500000)
+(define threshold-eval 1000000)
 
 (define (eval-exp exp env eval-count)
   (when (> eval-count threshold-eval)
@@ -317,6 +317,7 @@
 (define primitive-procedures
   (list (list 'car car)
         (list 'cdr cdr)
+        (list 'caar caar)
         (list 'cadr cadr)
         (list 'cons cons)
         (list 'null? null?)
@@ -325,6 +326,8 @@
         (list 'equal? equal?)
         (list 'list list)
         (list 'list-ref list-ref)
+        (list 'string-append string-append)
+        (list 'append append)
         (list '> >)
         (list '< <)
         (list '>= >=)

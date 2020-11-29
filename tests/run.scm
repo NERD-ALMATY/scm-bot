@@ -25,6 +25,16 @@
        init-env
        0))
 
+(test '55
+      (eval-exp
+       '(begin (define (fib x)
+                 (if (< x 2)
+                     x
+                     (+ (fib (- x 1)) (fib (- x 2)))))
+               (fib 10))
+       init-env
+       0))
+
 (define ev (make-eval (setup-environment)))
 
 (test "ok"

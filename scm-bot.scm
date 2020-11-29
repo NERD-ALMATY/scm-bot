@@ -76,7 +76,9 @@
                    "EVAL: Unbound variable")
                   ((eq? exn 'else-is-not-last)
                    "EVAL: ELSE clause isn't last")
-                  (else "EVAL: Some error occured"))
+                  (else
+                   (send-log 'err exn)
+                   "EVAL: Some error occured"))
                (let ((res (eval-exp exp env 0)))
                  (if (compound-procedure? res)
                      "#<compound-procedure>"
@@ -145,7 +147,9 @@
                                          ((exn type)
                                           "EVAL: type error")
                                          ((exn syntax)
-                                          "EVAL: syntax error")))))
+                                          "EVAL: syntax error")
+                                         ((exn)
+                                          "EVAL: some error")))))
                 ((command? "/help" text)
                  (telebot:sendMessage token
                                       chat_id: chat-id
