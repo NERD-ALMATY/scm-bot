@@ -172,9 +172,14 @@
                                   text))))))
       (define (msg-handler msg)
         (cond ((telebot:is-text? msg)
-               (dispatch-command msg
-                                 (telebot:resolve-query
-                                  '(message chat id) msg)))
+               (condition-case
+                   (dispatch-command msg
+                                     (telebot:resolve-query
+                                      '(message chat id) msg))
+                 ((exn)
+                  (send-log 'err
+                            (list "Unknown error in dispatch-command"
+                                  msg)))))
               (else
                (send-log 'warn (list
                                 "msg-handler: Unknown message type"
