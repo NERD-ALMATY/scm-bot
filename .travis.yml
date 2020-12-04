@@ -1,2 +1,7 @@
+language: c
+
 services:
   - docker
+
+script:
+  - docker build -t scm-bot .
