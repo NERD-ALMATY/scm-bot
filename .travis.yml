@@ -5,4 +5,6 @@ services:
 
 script:
   - echo $TRAVIS_BUILD_DIR
-  - cd $TRAVIS_BUILD_DIR && docker build -t scm-bot .
+  - ls -a $TRAVIS_BUILD_DIR
+  - pwd
+  - docker build -t scm-bot .

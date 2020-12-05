@@ -11,6 +11,7 @@ WORKDIR /root
 RUN mkdir scm-bot
 COPY . /root/scm-bot
 WORKDIR /root/scm-bot
+RUN ls -a
 RUN chicken-install -test
 RUN csc -O3 -R r7rs -o scm-bot-app scm-bot-app.scm
 CMD ./scm-bot-app
