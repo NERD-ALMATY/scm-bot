@@ -1,5 +1,6 @@
 # scm-bot
 [![Build Status](https://travis-ci.com/NERD-ALMATY/scm-bot.svg?branch=main)](https://travis-ci.com/NERD-ALMATY/scm-bot)
+
 Telegram bot with Scheme interpreter
 
 ## Build
