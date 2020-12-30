@@ -1,10 +1,28 @@
 language: c
 
-services:
-  - docker
+os: linux
 
+sudo: true
+dist: bionic
+
+addons:
+  apt:
+    packages:
+      - git
+      - sudo
+      - chicken-bin
+      - libchicken-dev
+      - libchicken8
+      - libcurl4
+      - curl
+      - openssl
+
+before_script:
+  - chicken-install r7rs
+  - git clone https://github.com/librerush/Telebot
+  - cd Telebot
+  - chicken-install -s
+      
 script:
-  - echo $TRAVIS_BUILD_DIR
-  - ls -a $TRAVIS_BUILD_DIR
-  - pwd
-  - docker build -t scm-bot .
+  - cd $TRAVIS_BUILD_DIR
+  - chicken-install -test
