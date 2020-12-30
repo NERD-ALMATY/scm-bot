@@ -18,11 +18,11 @@ addons:
       - openssl
 
 before_script:
-  - chicken-install r7rs
-  - git clone https://github.com/librerush/Telebot
+  - sudo chicken-install r7rs
+  - sudo git clone https://github.com/librerush/Telebot
   - cd Telebot
-  - chicken-install -s
+  - sudo chicken-install -s
       
 script:
   - cd $TRAVIS_BUILD_DIR
-  - chicken-install -test
+  - sudo chicken-install -test
